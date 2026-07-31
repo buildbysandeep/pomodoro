@@ -9,7 +9,7 @@ import {
   deleteTemplate,
 } from "../services/template";
 
-const router = Router();
+const router: Router = Router();
 router.use(expressAuth);
 
 router.get("/", async (req: AuthenticatedRequest, res) => {

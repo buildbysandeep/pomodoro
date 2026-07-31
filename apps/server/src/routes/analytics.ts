@@ -2,7 +2,7 @@ import { Router } from "express";
 import { expressAuth, type AuthenticatedRequest } from "../middleware/auth";
 import { getAnalytics } from "../services/session";
 
-const router = Router();
+const router: Router = Router();
 router.use(expressAuth);
 
 router.get("/", async (req: AuthenticatedRequest, res) => {

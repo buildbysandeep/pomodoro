@@ -11,7 +11,7 @@ export async function connectMongo(): Promise<typeof mongoose> {
     return mongoose;
   }
 
-  return mongoose.connect(MONGODB_URI, {
+  return mongoose.connect(MONGODB_URI as string, {
     maxPoolSize: 10,
     serverSelectionTimeoutMS: 5000,
   });

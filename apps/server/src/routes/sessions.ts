@@ -5,7 +5,7 @@ import { expressAuth, type AuthenticatedRequest } from "../middleware/auth";
 import { listSessions } from "../services/session";
 import { SessionModel } from "../models/session";
 
-const router = Router();
+const router: Router = Router();
 router.use(expressAuth);
 
 router.get("/history", async (req: AuthenticatedRequest, res) => {
@@ -33,9 +33,7 @@ router.get("/history", async (req: AuthenticatedRequest, res) => {
 
 router.get("/export", async (req: AuthenticatedRequest, res) => {
   try {
-    const sessions = await SessionModel.find({ userId: req.user!.userId })
-      .sort({ createdAt: -1 })
-      .lean();
+    const sessions = await SessionModel.find({ userId: req.user!.userId }).sort({ createdAt: -1 }).lean();
 
     const headers = ["ID", "Mode", "Duration", "Elapsed", "Completed", "CompletedAt", "CreatedAt"];
     const rows = sessions.map((s) => [

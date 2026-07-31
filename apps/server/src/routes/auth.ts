@@ -6,7 +6,7 @@ import { UserModel } from "../models/user";
 import { PreferencesModel } from "../models/preferences";
 import { signToken } from "../utils/jwt";
 
-const router = Router();
+const router: Router = Router();
 
 function setTokenCookie(res: Response, token: string): void {
   res.cookie("token", token, {

@@ -4,7 +4,7 @@ import { UserModel } from "../models/user";
 import { PreferencesModel } from "../models/preferences";
 import { signToken } from "../utils/jwt";
 
-const router = Router();
+const router: Router = Router();
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;

@@ -5,7 +5,7 @@ import { expressAuth, type AuthenticatedRequest } from "../middleware/auth";
 import { PreferencesModel } from "../models/preferences";
 import type { UserPreferences } from "@pomodoro/shared";
 
-const router = Router();
+const router: Router = Router();
 router.use(expressAuth);
 
 function mapPreferences(doc: InstanceType<typeof PreferencesModel>): UserPreferences {
@@ -40,7 +40,7 @@ router.patch("/", async (req: AuthenticatedRequest, res) => {
     const doc = await PreferencesModel.findOneAndUpdate(
       { userId: req.user!.userId },
       { $set: data },
-      { new: true, upsert: true }
+      { new: true, upsert: true },
     );
     res.json({ preferences: mapPreferences(doc) });
   } catch (err) {

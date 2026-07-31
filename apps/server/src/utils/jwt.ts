@@ -14,14 +14,14 @@ export interface TokenPayload {
 }
 
 export function signToken(payload: TokenPayload): string {
-  return jwt.sign(payload, JWT_SECRET, {
+  return jwt.sign(payload, JWT_SECRET as string, {
     expiresIn: "30d",
     algorithm: "HS256",
   });
 }
 
 export function verifyToken(token: string): TokenPayload {
-  return jwt.verify(token, JWT_SECRET) as TokenPayload;
+  return jwt.verify(token, JWT_SECRET as string) as TokenPayload;
 }
 
 export function tokenToUser(payload: TokenPayload): User {
