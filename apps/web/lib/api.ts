@@ -1,4 +1,4 @@
-const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_API_URL || process.env.SERVER_API_URL || "http://localhost:3001";
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
 export async function apiFetch(path: string, options?: RequestInit): Promise<Response> {
   const url = `${SERVER_URL}${path}`;

@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-const SERVER_URL = process.env.SERVER_API_URL || "http://localhost:3001";
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
 export async function serverFetch(path: string, options?: RequestInit): Promise<Response> {
   const cookieStore = await cookies();
